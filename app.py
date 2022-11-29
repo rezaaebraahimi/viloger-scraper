@@ -3,15 +3,11 @@ from requests_html import HTMLSession
 import snscrape.modules.twitter as sntwitter
 
 
-
-
 app = Flask(__name__)
 
 
 query = "(from:vitalik.eth) since:2022-09-01"
 tweets = []
-limit = 10
-
 
 sesssion = HTMLSession()
 r = sesssion.get("https://vitalik.ca/")
@@ -28,7 +24,7 @@ def index():
             link = article.absolute_links
         
             for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-                if len(tweets) == limit:
+                if len(tweets) == 10:
                     break
                 else:    
                     tweets.append([tweet.date, tweet.user.username, tweet.content])
