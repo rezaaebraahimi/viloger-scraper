@@ -5,6 +5,7 @@ import snscrape.modules.twitter as sntwitter
 from requests import *
 import requests
 from json import *
+
 app  = Flask(__name__)
 
 
@@ -17,12 +18,11 @@ tweets_2 = []
 sesssion = HTMLSession()
 r = sesssion.get("https://vitalik.ca/")
 
-r.html.render(timeout=20,scrolldown=5)
 
 viloger= r.html.find('h3')
 
 
-@app.route("/" , methods = ["POST", "GET"])
+@app.route("/" , methods=["POST", "GET"])
 def index():
     for item in viloger:
         try:
