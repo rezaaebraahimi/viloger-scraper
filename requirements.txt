@@ -2,4 +2,3 @@ Flask==2.2.2
 snscrape
 requests_html
 requests
-json
