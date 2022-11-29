@@ -6,24 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/style.css">
     <title>Viloger - Vitalik from everywhere!</title>
+    
 </head>
-<body>
-    {% if title and link %}
-        <a href="{{ link }}">{{ title }}</a>
-    {% endif %}
-        <div class="filter">
 
+<style>
+    body {
+      background-image: url('https://wallpapercave.com/wp/wp2322145.jpg');
+
+    }
+    </style>
+<body>
+        
+        <h1>Viloger - Vitalik From Everywhere..!</h1>
+        <br>
+        <div class="filter">
+            <div class="blog">
+                {% if title and link %}
+                    <table>
+                        <tr>
+                            <th>Last Blog Post</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>{{ title }}</td>
+                            <td><a href="{{ link }}">Show more..</a></td>
+                        </tr>
+                    </table>
+                {% endif %}
+            </div>
         </div>
 
-        <br>
+
+        <h3>Vitalik's last 5 tweets</h3>
         <table>
+            <tr>
+                <th>Date</th>
+                <th></th>
+                <th>Tweet</th>
+            </tr>
+        {% for tweet in tweets %}
+            {% if tweets %}
+            <tr>
+                <td>{{ tweet[0] }}</td>
+                <td>{{ tweet[1] }}</td>
+                <td>{{ tweet[2] }}</td>
+            </tr> 
+            {% endif %}
+        {% endfor %}
+        </table>
+        <h4> 3 recent tweets about Vitalik</h4>
+        <table class="table_2">
             <tr>
                 <th>Date</th>
                 <th>Username</th>
                 <th>Tweet</th>
             </tr>
-        {% for tweet in tweets %}
-            {% if tweets %}
+        {% for tweet in tweets_2 %}
+            {% if tweets_2 %}
             <tr>
                 <td>{{ tweet[0] }}</td>
                 <td>{{ tweet[1] }}</td>

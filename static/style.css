@@ -4,19 +4,66 @@
     outline: 0;
  }
 
-.filter {
+
+h1 {
+    margin-top: 2rem;
+    color: aliceblue;
+    align-items: center;
+    text-align: center;
+}
+
+
+h3 {
+    margin-top: 2rem;
     position: absolute;
+    padding: 1rem 1rem;
+    color: rgb(75, 0, 175);
+    align-items: right;
+    text-align: right;
+    left: 24%;
+    top: 21%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    font-size: 28px;
+    border-radius: 20px;
+}
+
+
+h4 {
+    margin-top: 2rem;
+    position: absolute;
+    padding: 1rem 1rem;
+    color: rgb(75, 0, 175);
+    align-items: right;
+    text-align: right;
+    left: 76%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    font-size: 28px;
+    border-radius: 20px;
+}
+
+.filter {
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
     opacity: 0.75 ;
-    background: rgb(35, 0, 70);
-    background: -moz-linear-gradient(90deg, rgba(35,0,70,1) 15%, rgba(70,0,95,0.8491771708683473) 65%, rgba(95,0,70,0.65) 100%);
-    background: -webkit-linear-gradient(90deg, rgba(30,0,65,1) 15%, rgba(65,0,85,0.8491771708683473) 65%, rgba(85,0,65,0.65) 100%);
-    background: linear-gradient(90deg, rgba(30,0,80,1) 15%, rgba(65,0,80,0.8491771708683473) 65%, rgba(80,0,65,0.65) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#280050",endColorstr="#690050",GradientType=1);
+   
+}
+
+.blog {
+
+    border-radius: 20px;
+    position: absolute;
+    padding: 1rem 1rem;
+    left: 65%;
+    margin-top: 2rem;
+    transform: translate(-50%,-50%);
+    width: 60%;
 }
 
 table {
@@ -24,15 +71,33 @@ table {
     padding: 1rem;
     position: absolute;
     z-index: 2;
-    left: 50%;
+    left: 30%;
     top: 57%;
     border-collapse: collapse;
     border-spacing: 0;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 12px rgba(150, 205, 255, 0.65);
-    transform: translate(-50%,-43%);
-    width: 60%;
+    transform: translate(-70%,-43%);
+    width: 30%;
+}
+
+
+.table_2 {
+    background-color: whitesmoke;
+    padding: 1rem;
+    position: absolute;
+    z-index: 2;
+    left: 70%;
+    top: 57%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(150, 205, 255, 0.65);
+    transform: translate(-30%,-43%);
+    width: 30%;
+
 }
  
 th, td {
@@ -41,7 +106,7 @@ th, td {
 }
 
 th {
-    background-color: cornflowerblue;
+    background-color: rgb(100, 150, 235);
 }
 
 tr:nth-child(odd) {
