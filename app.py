@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from requests_html import HTMLSession
 import snscrape.modules.twitter as sntwitter
@@ -66,5 +67,5 @@ def index():
             pass
 
 
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    app.run(host:="0.0.0.0", port:=int(os.environ.get('PORT', 5000)))
