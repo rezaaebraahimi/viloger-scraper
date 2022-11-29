@@ -18,11 +18,11 @@
 <body>
         
         <h1>Viloger - Vitalik From Everywhere..!</h1>
-        <br>
+
         <div class="filter">
             <div class="blog">
                 {% if title and link %}
-                    <table>
+                    <table class="table_3">
                         <tr>
                             <th>Last Blog Post</th>
                             <th></th>
@@ -35,8 +35,12 @@
                 {% endif %}
             </div>
         </div>
-
-
+        {% if eth_price %}
+        <img class="gif" width="325" src="https://d33wubrfki0l68.cloudfront.net/eda93ffbdab424441f930641c7b125be75d33624/2e895/images/giphy.gif" />
+        <div class="price">
+            {{ eth_price }}
+        </div>
+        {% endif %}
         <h3>Vitalik's last 5 tweets</h3>
         <table>
             <tr>

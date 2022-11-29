@@ -1,9 +1,10 @@
 from flask import Flask, render_template
 from requests_html import HTMLSession
 import snscrape.modules.twitter as sntwitter
-
-
-app = Flask(__name__)
+from requests import *
+import requests
+from json import *
+app  = Flask(__name__)
 
 
 query = "(from:VitalikButerin) since:2022-09-01 -filter:replies"
@@ -18,6 +19,8 @@ r = sesssion.get("https://vitalik.ca/")
 r.html.render(timeout=20,scrolldown=5)
 
 viloger= r.html.find('h3')
+
+
 @app.route("/" , methods = ["POST", "GET"])
 def index():
     for item in viloger:
@@ -37,8 +40,28 @@ def index():
                     break
                 else:    
                     tweets_2.append([tweet.date, tweet.user.username, tweet.content])
-                         
-            return render_template("index.html",title=title, link=link, item=item, viloger=viloger, tweets=tweets,tweets_2=tweets_2)    
+                    
+                    
+                    
+            url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+            parameters = {'start':'2','limit':'1','convert':'USD'}
+
+            headers = {'Accepts': 'application/json',
+            'X-CMC_PRO_API_KEY': '1d07af25-ee62-461c-8f28-82831753bf5d'}
+
+            session = Session()
+            session.headers.update(headers)
+                        
+            json = requests.get(url, params=parameters, headers=headers).json()
+            coins = json["data"]
+            for x in coins:
+                symbol = x['symbol']
+                price = "%.2f" % x['quote']['USD']['price']
+                eth_price = f"{symbol}: \n{price}"
+                             
+            return render_template("index.html",title=title,
+                                   link=link, item=item, viloger=viloger,
+                                   tweets=tweets,tweets_2=tweets_2,eth_price=eth_price)    
         except:
             pass
 
