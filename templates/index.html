@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+    <title>Viloger - Vitalik from everywhere!</title>
 </head>
 <body>
+    {% if title and link %}
+        <a href="{{ link }}">{{ title }}</a>
+    {% endif %}
+        <div class="filter">
 
-        {% if title and link %}
-            <a href="{{ link }}">{{ title }}</a>
-            <br>
-        {% endif %}
+        </div>
+
         <br>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Username</th>
+                <th>Tweet</th>
+            </tr>
         {% for tweet in tweets %}
             {% if tweets %}
-                <--{{ tweet[0] }}-->
-                <br> {{ tweet[1] }}: {{ tweet[2] }}
-                <br><br>
+            <tr>
+                <td>{{ tweet[0] }}</td>
+                <td>{{ tweet[1] }}</td>
+                <td>{{ tweet[2] }}</td>
+            </tr> 
             {% endif %}
-
         {% endfor %}
+        </table>
 </body> 
 </html>
