@@ -10,8 +10,16 @@
 
         {% if title and link %}
             <a href="{{ link }}">{{ title }}</a>
-
+            <br>
         {% endif %}
+        <br>
+        {% for tweet in tweets %}
+            {% if tweets %}
+                <--{{ tweet[0] }}-->
+                <br> {{ tweet[1] }}: {{ tweet[2] }}
+                <br><br>
+            {% endif %}
 
-</body>
+        {% endfor %}
+</body> 
 </html>
