@@ -4,76 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="static/style.css">
+
     <title>Viloger - Vitalik from everywhere!</title>
     
 </head>
 
-<style>
-    body {
-      background-image: url('https://wallpapercave.com/wp/wp2322145.jpg');
 
-    }
-    </style>
 <body>
         
-        <h1>Viloger - Vitalik From Everywhere..!</h1>
 
-        <div class="filter">
-            <div class="blog">
+            <div class="sidebar">
                 {% if title and link %}
-                    <table class="table_3">
-                        <tr>
-                            <th>Last Blog Post</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>{{ title }}</td>
-                            <td><a href="{{ link }}">Show more..</a></td>
-                        </tr>
-                    </table>
+                <h2>Last Blog Post</h2><br>
+                    <div class="sidebarOption">
+                        <h3>{{ title }}
+                            <a href="{{ link }}">Show more..</a>
+                        </h3>
+                    </div>
+
+                {% endif %}
+                {% if eth_price and market_cap %}
+                    <img class="gif" src="https://d33wubrfki0l68.cloudfront.net/eda93ffbdab424441f930641c7b125be75d33624/2e895/images/giphy.gif" />
+                    <div class="price">
+                        {{ eth_price }} $ <br>
+                        Market Cap:<br> {{ market_cap }} $
+                    </div>
                 {% endif %}
             </div>
-        </div>
-        {% if eth_price %}
-        <img class="gif" width="325" src="https://d33wubrfki0l68.cloudfront.net/eda93ffbdab424441f930641c7b125be75d33624/2e895/images/giphy.gif" />
-        <div class="price">
-            {{ eth_price }}
-        </div>
-        {% endif %}
-        <h3>Vitalik's last 5 tweets</h3>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th></th>
-                <th>Tweet</th>
-            </tr>
-        {% for tweet in tweets %}
-            {% if tweets %}
-            <tr>
-                <td>{{ tweet[0] }}</td>
-                <td>{{ tweet[1] }}</td>
-                <td>{{ tweet[2] }}</td>
-            </tr> 
-            {% endif %}
-        {% endfor %}
-        </table>
-        <h4> 3 recent tweets about Vitalik</h4>
-        <table class="table_2">
-            <tr>
-                <th>Date</th>
-                <th>Username</th>
-                <th>Tweet</th>
-            </tr>
-        {% for tweet in tweets_2 %}
+
+
+            <div class="post">
+                <h2>
+                    Vitalik's last tweets
+                </h2><br>
+                {% for tweet in tweets %}
+                {% if tweets %}
+                <div class="post__body">
+                    <div class="post__header">
+                        <div class="post__headerText">
+                            <h3>
+                                {{ tweet[1] }}
+                            </h3>
+                        </div>
+                        <div class="post__headerDescription">
+                            <p>
+                                {{ tweet[2] }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="post__footer">
+                        <p>
+                            {{ tweet[0] }}
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+
+
+        <div class="post">
+            <h2>
+                Recent about Vitalik
+            </h2><br>
+            {% for tweet in tweets_2 %}
             {% if tweets_2 %}
-            <tr>
-                <td>{{ tweet[0] }}</td>
-                <td>{{ tweet[1] }}</td>
-                <td>{{ tweet[2] }}</td>
-            </tr> 
+            <div class="post__body">
+                <div class="post__header">
+                    <div class="post__headerText">
+                        <h3>
+                            {{ tweet[1] }}
+                        </h3>
+                    </div>
+                    <div class="post__headerDescription">
+                        <p>
+                            {{ tweet[2] }}
+                        </p>
+                    </div>
+                </div>
+                <div class="post__footer">
+                    <p>
+                        {{ tweet[0] }}
+                    </p>
+                </div>
+            </div>
             {% endif %}
-        {% endfor %}
-        </table>
+            {% endfor %}
+        </div>
+
+    
 </body> 
 </html>

@@ -31,13 +31,13 @@ def index():
             link = article.absolute_links
         
             for tweet in sntwitter.TwitterSearchScraper(query).get_items():
-                if len(tweets) == 5:
+                if len(tweets) == 10:
                     break
                 else:    
                     tweets.append([tweet.date, tweet.user.username, tweet.content])
             
             for tweet in sntwitter.TwitterSearchScraper(query_2).get_items():
-                if len(tweets_2) == 3:
+                if len(tweets_2) == 10:
                     break
                 else:    
                     tweets_2.append([tweet.date, tweet.user.username, tweet.content])
@@ -59,10 +59,11 @@ def index():
                 symbol = x['symbol']
                 price = "%.2f" % x['quote']['USD']['price']
                 eth_price = f"{symbol}: \n{price}"
-                             
+                market_cap = int(x['quote']['USD']['market_cap'])
             return render_template("index.html",title=title,
                                    link=link, item=item, viloger=viloger,
-                                   tweets=tweets,tweets_2=tweets_2,eth_price=eth_price)    
+                                   tweets=tweets, tweets_2=tweets_2,
+                                   eth_price=eth_price, market_cap=market_cap)
         except:
             pass
 
